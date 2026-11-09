@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>پنل مدیریت | دامیار مهر و لامرد</title><link rel="stylesheet" href="style.css"><style>.adminwrap{max-width:900px;margin:25px auto;padding:15px}.adminbox{background:#fff;padding:25px;border-radius:10px;box-shadow:0 0 10px #0001;margin-bottom:20px}.adminbox input,.adminbox textarea,.adminbox select{width:100%;padding:11px;margin:7px 0 15px;border:1px solid #ddd;border-radius:5px}.adminbox button{border:0;background:#2e7d32;color:white;padding:10px 18px;border-radius:5px;cursor:pointer}.rowpost{border-bottom:1px solid #ddd;padding:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}</style><meta name="description" content="دامیار مهر و لامرد؛ اخبار، مقالات، اطلاعات و مطالب مرتبط با دامداری، دام و طیور و خوراک دام در شهرستان‌های مهر و لامرد."><meta name="robots" content="index,follow"><meta property="og:title" content="پنل مدیریت | دامیار مهر و لامرد"><meta property="og:description" content="دامیار مهر و لامرد؛ اخبار، مقالات، اطلاعات و مطالب مرتبط با دامداری، دام و طیور و خوراک دام در شهرستان‌های مهر و لامرد."><meta property="og:type" content="website"></head><body><div class="topline"></div><header class="brand"><div class="brandtext"><img class="logo" src="img/logo.png" alt="لوگوی دامیار" onerror="this.style.display='none'"><div><h1>دامیار مهر و لامرد</h1><p>مرجع اخبار، مطالب و خدمات دام و طیور در مهر و لامرد</p></div></div><div><span>اخبار و اطلاعات دامداری و دام و طیور در شهرستان‌های مهر و لامرد</span></div></header><nav class="nav"><ul><li><a href="index.html">خانه</a></li><li><a href="news.html">اخبار</a></li><li><a href="livestock.html">دامداری</a></li><li><a href="poultry.html">دام و طیور</a></li><li><a href="feed.html">خوراک دام</a></li><li><a href="articles.html">مقالات</a></li><li><a href="contact.html">تماس با ما</a></li></ul></nav><main class="adminwrap"><section class="adminbox" id="login"><h2>ورود مدیر دامیار</h2><p>ثبت‌نام عمومی وجود ندارد؛ فقط حساب از قبل ایجادشده مدیر وارد شود.</p><form id="loginForm"><label>ایمیل</label><input type="email" id="email" required><label>رمز عبور</label><input type="password" id="password" required><button>ورود</button></form><p id="loginMsg"></p></section><section class="adminbox" id="dashboard" style="display:none"><div style="display:flex;justify-content:space-between;align-items:center"><h2>مدیریت مطالب</h2><button id="logout">خروج</button></div><form id="postForm"><input type="hidden" id="postId"><label>عنوان</label><input id="title" required><label>نوع مطلب</label><select id="kind"><option value="article">مقاله</option><option value="news">خبر</option></select><div id="categoryWrap"><label>دسته‌بندی مقاله</label><select id="category"><option value="livestock">دامداری</option><option value="poultry">دام و طیور</option><option value="feed">خوراک دام</option><option value="articles">مقالات</option></select></div><label>تصویر مطلب (اختیاری)</label><input type="file" id="postImage" accept="image/*"><small>در صورت انتخاب، تصویر در فضای ذخیره‌سازی Supabase آپلود می‌شود.</small><label>وضعیت خبر</label><select id="archived"><option value="false">فعال / جدید</option><option value="true">آرشیو خبر</option></select><label>متن</label><textarea id="content" rows="10" required></textarea><label>وضعیت انتشار</label><select id="published"><option value="true">منتشر شود</option><option value="false">پیش‌نویس</option></select><button>ذخیره مطلب</button><button type="button" id="cancelEdit" style="background:#777">لغو ویرایش</button></form><p id="saveMsg"></p><h3>مطالب موجود</h3>
+<div class="admin-search" style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0">
+<input id="adminSearch" type="search" placeholder="جستجو بین عنوان و متن خبرها و مقالات..." style="flex:1;min-width:220px;padding:10px;border:1px solid #ddd;border-radius:5px">
+<select id="adminKindFilter" style="padding:10px;border:1px solid #ddd;border-radius:5px"><option value="all">همه مطالب</option><option value="news">فقط خبرها</option><option value="article">فقط مقالات</option></select>
+</div><div id="adminPosts"></div>
+<hr style="margin:25px 0">
+<h2>مدیریت تصاویر تبلیغات و گالری</h2>
+<form id="mediaForm">
+<label>نوع تصویر</label><select id="mediaType"><option value="ad">تبلیغات</option><option value="gallery">گالری تصاویر</option></select>
+<label>عنوان یا توضیح</label><input id="mediaTitle" placeholder="مثلاً تبلیغ خوراک دام">
+<label>موضوع تبلیغ</label><select id="mediaTopic">
+<option value="users">تبلیغات کاربران</option>
+<option value="companies">تبلیغات شرکت‌ها</option>
+<option value="shared_resources">منابع مشترک</option>
+<option value="livestock">دامداری</option>
+<option value="poultry">دام و طیور</option>
+<option value="feed">خوراک دام و طیور</option>
+<option value="equipment">تجهیزات و ماشین‌آلات</option>
+<option value="services">خدمات</option>
+<option value="products">محصولات و تأمین‌کنندگان</option>
+<option value="chicks">جوجه و طیور</option>
+<option value="other">سایر</option>
+</select>
+<label>محل نمایش تبلیغ</label><select id="mediaPlacement">
+<option value="all">تمام صفحات سایت</option>
+<option value="home">فقط صفحه خانه</option>
+<option value="sidebar">نوار کناری سایت</option>
+<option value="news">صفحه اخبار</option>
+<option value="articles">صفحه مقالات</option>
+<option value="livestock">صفحه دامداری</option>
+<option value="poultry">صفحه دام و طیور</option>
+<option value="feed">صفحه خوراک دام</option>
+</select>
+<label>لینک مقصد (برای تبلیغات اختیاری)</label><input id="mediaLink" type="url" placeholder="https://...">
+<label>انتخاب تصویر</label><input id="mediaFile" type="file" accept="image/*" required>
+<button type="submit">آپلود تصویر</button></form>
+<p id="mediaMsg"></p><h3>تصاویر ذخیره‌شده</h3><div id="adminMedia"></div>
+</section></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="site.js"></script><script>
+let currentUser=null;const $=id=>document.getElementById(id);async function sessionCheck(){const {data}=await supabaseClient.auth.getSession();currentUser=data.session?.user||null;showPanel();}
+function showPanel(){ $('login').style.display=currentUser?'none':'block';$('dashboard').style.display=currentUser?'block':'none';if(currentUser){loadAdminPosts();loadMedia();}}
+$('loginForm').addEventListener('submit',async e=>{e.preventDefault();$('loginMsg').textContent='در حال ورود...';const {data,error}=await supabaseClient.auth.signInWithPassword({email:$('email').value,password:$('password').value});if(error){$('loginMsg').textContent=error.message;return;}currentUser=data.user;showPanel();});
+$('logout').onclick=async()=>{await supabaseClient.auth.signOut();currentUser=null;showPanel();};
+$('postForm').onsubmit=async e=>{e.preventDefault();const id=$('postId').value;let image_url=id?(window.adminData.find(x=>String(x.id)===String(id))?.image_url||null):null;
+const image=$('postImage').files[0];
+if(image){const uploaded=await uploadImage(image,'posts');if(!uploaded){$('saveMsg').textContent='آپلود تصویر ناموفق بود.';return;}image_url=uploaded;}
+const selectedKind=$('kind').value;const post={title:$('title').value.trim(),content:$('content').value,kind:selectedKind,category:selectedKind==='news'?'news':$('category').value,published:$('published').value==='true',archived:$('archived').value==='true',image_url};
+const result=id?await supabaseClient.from('posts').update(post).eq('id',id):await supabaseClient.from('posts').insert(post);if(result.error){$('saveMsg').textContent='خطا: '+result.error.message;return;}$('saveMsg').textContent='ذخیره شد.';resetForm();loadAdminPosts();};
+function resetForm(){$('postForm').reset();$('postId').value='';syncCategory();}
+function syncCategory(){const isNews=$('kind').value==='news';$('categoryWrap').style.display=isNews?'none':'block';if(isNews)$('category').value='news';else if($('category').value==='news')$('category').value='articles';}
+$('kind').addEventListener('change',syncCategory);syncCategory();
+async function uploadImage(file,folder){
+ const ext=(file.name.split('.').pop()||'jpg').toLowerCase();
+ const path=folder+'/'+Date.now()+'-'+Math.random().toString(36).slice(2)+'.'+ext;
+ const {error}=await supabaseClient.storage.from('damyar-media').upload(path,file,{upsert:false});
+ if(error){alert('خطای آپلود: '+error.message+'\nمطمئن شو bucket با نام damyar-media ساخته شده.');return null;}
+ return supabaseClient.storage.from('damyar-media').getPublicUrl(path).data.publicUrl;
+}
+async function loadAdminPosts(){const {data,error}=await supabaseClient.from('posts').select('*').order('created_at',{ascending:false});if(error){$('adminPosts').textContent='خطا: '+error.message;return;}window.adminData=data||[];renderAdminPosts();}
+function renderAdminPosts(){const term=($('adminSearch')?.value||'').trim().toLocaleLowerCase('fa');const kind=$('adminKindFilter')?.value||'all';const list=(window.adminData||[]).filter(p=>{const text=(String(p.title||'')+' '+String(p.content||'')).toLocaleLowerCase('fa');return (kind==='all'||String(p.kind||'article').toLowerCase()===kind)&&(!term||text.includes(term));});$('adminPosts').innerHTML=list.map(p=>`<div class="rowpost"><div><b>${safe(p.title)}</b><small> — ${String(p.kind||'article').toLowerCase()==='news'?'خبر':'مقاله'} — ${p.published?'منتشرشده':'پیش‌نویس'} — ${p.category||'بدون دسته'} ${p.archived?'— آرشیو':''}</small></div><div><button onclick="editItem('${p.id}')">ویرایش</button> <button style="background:#c33" onclick="removeItem('${p.id}')">حذف</button></div></div>`).join('')||'<div class="empty">مطلبی با این جستجو/فیلتر پیدا نشد.</div>';}
+$('adminSearch').addEventListener('input',renderAdminPosts);$('adminKindFilter').addEventListener('change',renderAdminPosts);
+function safe(v){return String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+window.editItem=id=>{const p=window.adminData.find(x=>String(x.id)===String(id));if(!p)return;$('postId').value=p.id;$('title').value=p.title;$('content').value=p.content;$('kind').value=p.kind;$('category').value=p.category||'articles';syncCategory();$('archived').value=String(!!p.archived);$('published').value=String(p.published);window.scrollTo({top:0,behavior:'smooth'});};
+window.removeItem=async id=>{if(!confirm('مطلب حذف شود؟'))return;const {error}=await supabaseClient.from('posts').delete().eq('id',id);if(error)alert(error.message);else loadAdminPosts();};async function loadMedia(){
+ const {data,error}=await supabaseClient.from('site_media').select('*').order('created_at',{ascending:false});
+ if(error){$('adminMedia').textContent='خطا: '+error.message;return;}
+ $('adminMedia').innerHTML=(data||[]).map(m=>`<div class="rowpost"><div><img src="${safe(m.image_url)}" style="width:85px;height:60px;object-fit:cover;border-radius:5px"><b>${safe(m.title||'بدون عنوان')}</b><small> ${m.type==='ad'?'تبلیغ':'گالری'} — موضوع: ${safe(m.topic||'other')} — صفحه: ${safe(m.placement||'all')}</small></div><button style="background:#c33" onclick="deleteMedia('${m.id}')">حذف</button></div>`).join('')||'تصویری وجود ندارد';
+ window.mediaData=data||[];
+}
+$('mediaType').addEventListener('change',()=>{$('mediaPlacement').parentElement.style.display=$('mediaType').value==='ad'?'block':'none';});
+$('mediaType').dispatchEvent(new Event('change'));
+$('mediaForm').onsubmit=async e=>{e.preventDefault();const file=$('mediaFile').files[0];if(!file)return;const url=await uploadImage(file,'media');if(!url)return;
+ const {error}=await supabaseClient.from('site_media').insert({type:$('mediaType').value,title:$('mediaTitle').value,topic:$('mediaTopic').value,placement:$('mediaPlacement').value,url:url,link_url:$('mediaLink').value||null,image_url:url});
+ $('mediaMsg').textContent=error?'خطا: '+error.message:'تصویر آپلود شد.';if(!error){$('mediaForm').reset();loadMedia();}
+};
+window.deleteMedia=async id=>{if(!confirm('این تصویر حذف شود؟'))return;const {error}=await supabaseClient.from('site_media').delete().eq('id',id);if(error)alert(error.message);else loadMedia();};
+$('cancelEdit').onclick=resetForm;supabaseClient.auth.onAuthStateChange((_event,session)=>{currentUser=session?.user||null;showPanel();});sessionCheck();
+</script></body></html>

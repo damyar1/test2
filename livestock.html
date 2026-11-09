@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>دامداری در مهر و لامرد | دامیار</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+        content="دامیار مهر و لامرد؛ اخبار، مقالات، اطلاعات و مطالب مرتبط با دامداری، دام و طیور و خوراک دام در شهرستان‌های مهر و لامرد.">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="دامداری در مهر و لامرد | دامیار">
+    <meta property="og:description"
+        content="دامیار مهر و لامرد؛ اخبار، مقالات، اطلاعات و مطالب مرتبط با دامداری، دام و طیور و خوراک دام در شهرستان‌های مهر و لامرد.">
+    <meta property="og:type" content="website">
+</head>
+
+<body>
+    <div class="topline"></div>
+    <header class="brand">
+    <div class="brand-side brand-left">
+        <img src="./damyar-livestock-logo.png" alt="لوگوی دام و طیور دامیار" class="brand-livestock-logo">
+    </div>
+    <div class="brand-center">
+        <h1>دامیار مهر و لامرد - فارس</h1>
+        <p class="brand-subtitle">اخبار دام و طیور در شهرستان‌های مهر و لامرد</p>
+        <img src="./damyar-mosque-banner.png" alt="امامزاده شاه فرج الله - دهستان کهنویه - لامرد" class="brand-mosque-logo">
+    </div>
+    <div class="brand-side brand-right">
+        <img src="./damyar-wordmark.png" alt="دامیار مهر و لامرد فارس" class="brand-wordmark">
+    </div>
+</header>
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">خانه</a></li>
+            <li><a href="news.html">اخبار</a></li>
+            <li><a href="livestock.html">دامداری</a></li>
+            <li><a href="poultry.html">دام و طیور</a></li>
+            <li><a href="feed.html">خوراک دام</a></li>
+            <li><a href="articles.html">مقالات</a></li>
+            <li><a href="contact.html">تماس با ما</a></li>
+        </ul>
+    </nav>
+    <main class="layout">
+        <aside class="sidebar rightside">
+            <h3>بخش‌ها</h3>
+            <ul>
+                <li><a href="livestock.html">خدمات دامداری</a></li>
+                <li><a href="poultry.html">خدمات طیور</a></li>
+                <li><a href="feed.html">خوراک دام و طیور</a></li>
+                <li><a href="articles.html">مقالات تخصصی</a></li>
+            </ul>
+            <div class="ad-slot"><strong>جایگاه تبلیغات</strong><small>تبلیغات تجهیزات، خوراک و خدمات</small></div>
+            <h3>آمار سایت</h3>
+            <ul class="statlist">
+                <li>آخرین بروزرسانی: <span id="lastUpdate">—</span></li>
+                <li>تعداد مطالب: <span id="postCount">—</span></li>
+                <li>بازدید کل سایت: <span id="siteViews">—</span></li>
+                <li>بازدید امروز: <span id="todayViews">—</span></li>
+                <li>موضوع سایت: دام و طیور</li>
+            </ul>
+        </aside>
+        <section class="content">
+            <h3 class="section-title">دامداری</h3>
+            <div class="article-preview">
+                <h2>پرورش و نگهداری دام</h2>
+                <p>در این بخش مطالب مربوط به مدیریت دامداری، نگهداری گاو، گوسفند و بز و نکات عمومی بهداشت و تغذیه منتشر
+                    می‌شود.</p>
+            </div>
+            <div id="livestockPosts"></div>
+            <div class="ad-slot"><strong>جایگاه تبلیغات تخصصی دامداری</strong><small>خوراک، تجهیزات، خدمات و محصولات
+                    دامداری</small></div>
+        </section>
+        <aside class="sidebar leftside">
+            <h3>گالری تصاویر</h3>
+            <div class="gallery">
+                <div class="ad-slot"><strong>جایگاه تصویر</strong><small>گالری دام و طیور</small></div>
+                <div class="ad-slot"><strong>جایگاه تصویر</strong><small>گالری دام و طیور</small></div>
+            </div>
+            <div class="ad-slot"><strong>جایگاه تبلیغات</strong><small>تبلیغ کسب‌وکارهای مرتبط</small></div>
+            <h3>دسته‌بندی‌ها</h3>
+            <ul>
+                <li><a href="livestock.html">پرورش دام</a></li>
+                <li><a href="poultry.html">پرورش طیور</a></li>
+                <li><a href="feed.html">خوراک و تغذیه</a></li>
+                <li><a href="articles.html">مقالات آموزشی</a></li>
+            </ul>
+        </aside>
+    </main>
+    <footer class="footer">دامیار | مرجع مطالب دام و طیور<br><small>مطالب آموزشی جایگزین مشاوره دامپزشکی نیستند.</small>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="site.js"></script>
+</body>
+
+</html>

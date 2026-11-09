@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://damyar1.github.io/damyar/sitemap.xml
